@@ -1,0 +1,43 @@
+{
+  "name": "grunt-unused",
+  "version": "0.1.0",
+  "description": "Check for unused files in a project",
+  "keywords": [
+    "gruntplugin",
+    "unused",
+    "files",
+    "images",
+    "css",
+    "optimize",
+    "clean"
+  ],
+  "homepage": "https://github.com/ryanburgess/grunt-unused",
+  "bugs": {
+    "url": "https://github.com/ryanburgess/grunt-unused/issues"
+  },
+  "author": {
+    "name": "Ryan Burgess",
+    "email": "rburgess@evernote.com",
+    "url": "http://ryanburgess.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ryanburgess/grunt-unused.git"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "licenses": {
+    "type": "MIT"
+  }
+}
