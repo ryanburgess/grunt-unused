@@ -5,6 +5,8 @@ module.exports = function (grunt) {
     var options,
     reference,
     directory,
+    unused,
+    content,
     assets = [],
     links = [];
 
@@ -26,7 +28,7 @@ module.exports = function (grunt) {
     grunt.file.expand({
       filter: 'isFile',
       }, options.directory).forEach(function(file){ // Change this to narrow down the search
-      var content = grunt.file.read(file);
+      content = grunt.file.read(file);
       assets.forEach(function(asset){
         if(content.indexOf(asset) !== -1){
           links.push(asset);
@@ -35,7 +37,7 @@ module.exports = function (grunt) {
     });
 
     // Output unused files list in console
-    var unused = grunt.util._.difference(assets, links);
+    unused = grunt.util._.difference(assets, links);
     console.log('Found '+ unused.length +' unused files:');
     unused.forEach(function(file){
       console.log(file);
