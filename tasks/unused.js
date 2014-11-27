@@ -28,7 +28,7 @@ module.exports = function (grunt) {
       }, options.directory).forEach(function(file){ // Change this to narrow down the search
       var content = grunt.file.read(file);
       assets.forEach(function(asset){
-        if(content.search(asset) !== -1){
+        if(content.indexOf(asset) !== -1){
           links.push(asset);
         }
       });
