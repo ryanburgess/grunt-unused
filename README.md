@@ -9,7 +9,7 @@ A Grunt task to check for unused files in a project directory and output them to
 If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide, as it explains how to create a [gruntfile][Getting Started] as well as install and use grunt plugins. Once you're familiar with that process, install this plugin with this command:
 
 ```sh
-npm install --save-dev grunt-unused
+npm install grunt-unused --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
