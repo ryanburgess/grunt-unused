@@ -1,8 +1,17 @@
+/*
+ * grunt-unused
+ * https://github.com/ryanburgess/grunt-unused
+ *
+ * Copyright (c) 2014 Ryan Burgess
+ * Licensed under the MIT license.
+ */
+
 'use strict';
 
 module.exports = function (grunt) {
-	grunt.registerTask('unused', function(){
-    var options,
+  grunt.registerTask('unused', function(){
+    var fs = require('fs'),
+    options,
     reference,
     directory,
     unused,
@@ -12,7 +21,8 @@ module.exports = function (grunt) {
 
     options = this.options({
       reference: 'img/',
-      directory: ['**/*.handlebars', '**/*.html']
+      directory: ['**/*.html'],
+      remove: false
     });
 
     // Get list of files depending on the file directory
@@ -38,9 +48,19 @@ module.exports = function (grunt) {
 
     // Output unused files list in console
     unused = grunt.util._.difference(assets, links);
-    console.log('Found '+ unused.length +' unused files:');
+    // output number of unused files
+    grunt.log.ok(unused.length + ' file' + (unused.length === 1 ? '' : 's') + ' unused files:');
+
     unused.forEach(function(file){
-      console.log(file);
+      
+      // delete file if remove is set to true
+      if(options.remove === true){
+        fs.unlinkSync(options.reference + file);
+        console.log('deleted '+ options.reference + file);
+      }else{
+        console.log(options.reference + file);
+      }
+
     });
   });
 };

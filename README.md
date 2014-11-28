@@ -36,7 +36,8 @@ grunt.initConfig({
   unused: {
     options: {
       reference: 'img/',
-      directory: ['**/*.handlebars', '**/*.html']
+      directory: ['**/*.handlebars', '**/*.html'],
+      remove: false // set to true to delete unused files from project
     }
   }
 });
@@ -44,6 +45,26 @@ grunt.initConfig({
 grunt.loadNpmTasks('grunt-unused');
 grunt.registerTask('default', ['unused']);
 ```
+
+### Options
+
+#### reference
+Type: `String`
+Default value: `img/`
+
+A reference to the directory of files that are being checked if they are referenced in other project files.
+
+#### directory
+Type: `String|Array`
+Default value: `['**/*.html']`
+
+An array of directories that contain files that reference files in the reference directory.
+
+#### remove
+Type: `Boolean`
+Default value: `false`
+
+The ablity to automatically delete unused file reference from project.
 
 ## Contributing
 
