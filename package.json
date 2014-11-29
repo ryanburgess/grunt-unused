@@ -1,6 +1,6 @@
 {
   "name": "grunt-unused",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Check for unused files in a project",
   "keywords": [
     "gruntplugin",
@@ -8,6 +8,13 @@
     "files",
     "images",
     "css",
+    "jpg",
+    "png",
+    "js",
+    "javascript",
+    "delete",
+    "remove",
+    "organize",
     "optimize",
     "clean"
   ],
