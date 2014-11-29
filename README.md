@@ -1,7 +1,7 @@
 Grunt Unused
 ============
 
-A Grunt task to check for unused files in a project directory and output them to the console.
+A Grunt task to check for unused files (jpg, png, css, js etc) in a project files and output them to the console.
 
 
 ## Getting Started
