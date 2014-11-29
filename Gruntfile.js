@@ -6,6 +6,7 @@ module.exports = function(grunt) {
       options: {
         reference: 'img/',
         directory: ['**/*.handlebars', '**/*.html'],
+        days: 30,
         remove: false // set to true to delete unused files from project
       },
     }

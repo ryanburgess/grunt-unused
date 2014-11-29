@@ -1,6 +1,6 @@
 {
   "name": "grunt-unused",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Check for unused files in a project",
   "keywords": [
     "gruntplugin",
@@ -37,6 +37,7 @@
   "dependencies": {
   },
   "devDependencies": {
+    "moment": "^2.8.4"
   },
   "peerDependencies": {
     "grunt": "~0.4.0"

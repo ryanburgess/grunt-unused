@@ -11,19 +11,76 @@
 module.exports = function (grunt) {
   grunt.registerTask('unused', function(){
     var fs = require('fs'),
-    options,
-    reference,
-    directory,
-    unused,
-    content,
-    assets = [],
-    links = [];
+      moment = require('moment'),
+      options,
+      reference,
+      directory,
+      unused,
+      content,
+      datemod,
+      todayDate,
+      startDate,
+      endDate,
+      dayDiff,
+      assets = [],
+      links = [];
 
     options = this.options({
       reference: 'img/',
       directory: ['**/*.html'],
-      remove: false
+      remove: false,
+      days: null
     });
+
+    //get current date and time
+    function getDateTime() {
+
+        var date = new Date(),
+          hour,
+          min,
+          sec,
+          year,
+          month,
+          day;
+
+        //get hours
+        hour = date.getHours();
+        hour = (hour < 10 ? "0" : "") + hour;
+
+        //get minutes
+        min  = date.getMinutes();
+        min = (min < 10 ? "0" : "") + min;
+
+        //get seconds
+        sec  = date.getSeconds();
+        sec = (sec < 10 ? "0" : "") + sec;
+
+        //get year
+        year = date.getFullYear();
+
+        //get month
+        month = date.getMonth() + 1;
+        month = (month < 10 ? "0" : "") + month;
+
+        //get day
+        day  = date.getDate();
+        day = (day < 10 ? "0" : "") + day;
+
+        return year + "-" + month + "-" + day; 
+
+    }
+
+    todayDate = getDateTime();
+
+
+    function deleteFile(fileRef){
+      fs.unlinkSync(fileRef);
+      console.log('deleted '+ fileRef);
+    }
+
+    function logFiles(fileRef){
+      console.log(fileRef);
+    }
 
     // Get list of files depending on the file directory
     grunt.file.expand({
@@ -54,13 +111,27 @@ module.exports = function (grunt) {
     unused.forEach(function(file){
       
       // delete file if remove is set to true
-      if(options.remove === true){
-        fs.unlinkSync(options.reference + file);
-        console.log('deleted '+ options.reference + file);
-      }else{
-        console.log(options.reference + file);
-      }
+      if(options.remove === true && options.days !== null){
+        datemod = fs.statSync(options.reference + file).mtime.toISOString();
+        datemod = datemod.replace(/\T.+/, '');
+        startDate = moment(datemod, 'YYYY-M-DD');
+        endDate = moment(todayDate, 'YYYY-M-DD');
+        dayDiff = endDate.diff(startDate, 'days');
 
+        if(dayDiff >= options.days){
+          //delete file
+          deleteFile(options.reference + file);
+        }else{
+          // log file references
+          logFiles(options.reference + file);
+        }
+      }else if(options.remove === true){
+        //delete file
+        deleteFile(options.reference + file);
+      }else{
+        // log file references
+        logFiles(options.reference + file);
+      }
     });
   });
 };

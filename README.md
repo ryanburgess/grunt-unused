@@ -37,6 +37,7 @@ grunt.initConfig({
     options: {
       reference: 'img/',
       directory: ['**/*.handlebars', '**/*.html'],
+      days: 30,
       remove: false // set to true to delete unused files from project
     }
   }
@@ -65,6 +66,12 @@ Type: `Boolean`
 Default value: `false`
 
 The ablity to automatically delete unused file reference from project.
+
+#### days
+Type: `Number`
+Default value: `false`
+
+If remove is set to true and days has a value files will only delete if the file hasn't been modified after the length of days.
 
 ## Contributing
 
