@@ -80,7 +80,7 @@ If remove is set to true and days has a value files will only delete if the file
 * 0.1.4: add the option to automatically delete unused files from project.
 * 0.1.3: updates to documentation.
 * 0.1.2: clean up code.
-* 0.1.1: fix [#1](https://github.com/ryanburgess/grunt-unused/issues/1) by replace `String.prototype.search` with `String.prototype.in
+* 0.1.1: fix [#1](https://github.com/ryanburgess/grunt-unused/issues/1) by replace `String.prototype.search` with `String.prototype.in..`
 * 0.1.0: Initial release.
 
 ## Contributing
