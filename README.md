@@ -73,6 +73,16 @@ Default value: `false`
 
 If remove is set to true and days has a value files will only delete if the file hasn't been modified after the length of days.
 
+## Release History
+* 0.1.7: add release history notes to documentation.
+* 0.1.6: add the ability to only delete files after modified date.
+* 0.1.5 updates to documentation.
+* 0.1.4: add the option to automatically delete unused files from project.
+* 0.1.3: updates to documentation.
+* 0.1.2: clean up code.
+* 0.1.1: fix [#1](https://github.com/ryanburgess/grunt-unused/issues/1) by replace `String.prototype.search` with `String.prototype.in
+* 0.1.0: Initial release.
+
 ## Contributing
 
 1. Fork it
