@@ -22,9 +22,6 @@ module.exports = function(grunt) {
         quotmark: 'single',
         unused: false,
         ignores: ['node_modules/**/*.js'],
-        globals: {
-          jQuery: true
-        },
       },
     },
     jsonlint: {
