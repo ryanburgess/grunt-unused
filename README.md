@@ -1,6 +1,8 @@
 Grunt Unused
 ============
 
+[![npm version](https://badge.fury.io/js/grunt-unused.svg)](http://badge.fury.io/js/grunt-unused) [![Build Status](https://travis-ci.org/ryanburgess/grunt-unused.svg?branch=master)](https://travis-ci.org/ryanburgess/grunt-unused)
+
 A Grunt task to check for unused files (jpg, png, css, js etc) in a project files and output them to the console.
 
 
@@ -74,6 +76,7 @@ Default value: `false`
 If remove is set to true and days has a value files will only delete if the file hasn't been modified after the length of days.
 
 ## Release History
+* 0.1.9: Add jshint and jsonlint tests.
 * 0.1.8: Add development dependencies.
 * 0.1.7: add release history notes to documentation.
 * 0.1.6: add the ability to only delete files after modified date.
