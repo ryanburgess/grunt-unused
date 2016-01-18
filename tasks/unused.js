@@ -139,7 +139,7 @@ module.exports = function (grunt) {
       if (!grunt.file.exists(destDir)) {
         grunt.file.mkdir(destDir);
       }
-      grunt.file.write(options.reportOutput,unused.join("\r\n"));
+      grunt.file.write(options.reportOutput,unused.join('\r\n'));
       grunt.log.ok('Report "' + options.reportOutput + '" created.');
     }
   });
