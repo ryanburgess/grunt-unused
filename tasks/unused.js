@@ -5,6 +5,7 @@
  * Copyright (c) 2014 Ryan Burgess
  * Licensed under the MIT license.
  */
+var path = require('path');
 module.exports = function (grunt) {
   'use strict';
   grunt.registerTask('unused', function(){
@@ -27,7 +28,8 @@ module.exports = function (grunt) {
       reference: 'img/',
       directory: ['**/*.html'],
       remove: false,
-      days: null
+      days: null,
+      reportOutput:false
     });
 
     //get current date and time
@@ -131,5 +133,14 @@ module.exports = function (grunt) {
         logFiles(options.reference + file);
       }
     });
+
+    if (unused.length > 0 && options.reportOutput) {
+      var destDir = path.dirname(options.reportOutput);
+      if (!grunt.file.exists(destDir)) {
+        grunt.file.mkdir(destDir);
+      }
+      grunt.file.write(options.reportOutput,unused.join("\r\n"));
+      grunt.log.ok('Report "' + options.reportOutput + '" created.');
+    }
   });
 };
