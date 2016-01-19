@@ -40,7 +40,8 @@ grunt.initConfig({
       reference: 'img/',
       directory: ['**/*.handlebars', '**/*.html'],
       days: 30,
-      remove: false // set to true to delete unused files from project
+      remove: false, // set to true to delete unused files from project
+      reportOutput:'report.txt' // set to false to disable file output
     }
   }
 });
@@ -74,6 +75,12 @@ Type: `Number`
 Default value: `false`
 
 If remove is set to true and days has a value files will only delete if the file hasn't been modified after the length of days.
+
+#### reportOutput
+Type: `String`
+Default value: `false`
+
+Output unused files to a file. Set to false to disable
 
 ## Release History
 * 0.1.9: Add jshint and jsonlint tests.
