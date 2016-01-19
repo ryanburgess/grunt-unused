@@ -83,6 +83,7 @@ Default value: `false`
 Output unused files to a file. Set to false to disable
 
 ## Release History
+* 0.2.1: Merge pull request [#5](https://github.com/ryanburgess/grunt-unused/pull/5)
 * 0.1.9: Add jshint and jsonlint tests.
 * 0.1.8: Add development dependencies.
 * 0.1.7: add release history notes to documentation.
