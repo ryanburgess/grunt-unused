@@ -67,7 +67,7 @@ module.exports = function (grunt) {
         day  = date.getDate();
         day = (day < 10 ? '0' : '') + day;
 
-        return year + '-' + month + '-' + day; 
+        return year + '-' + month + '-' + day;
 
     }
 
@@ -87,7 +87,7 @@ module.exports = function (grunt) {
     grunt.file.expand({
       filter: 'isFile',
         cwd: options.reference // Change this reference to your directory
-      }, 
+      },
       ['**/*']).forEach(function(file){
         assets.push(file);
     });
@@ -110,7 +110,7 @@ module.exports = function (grunt) {
     grunt.log.ok(unused.length + ' file' + (unused.length === 1 ? '' : 's') + ' unused files:');
 
     unused.forEach(function(file){
-      
+
       // delete file if remove is set to true
       if(options.remove === true && options.days !== null){
         datemod = fs.statSync(options.reference + file).mtime.toISOString();
