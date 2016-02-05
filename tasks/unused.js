@@ -6,6 +6,7 @@
  * Licensed under the MIT license.
  */
 var path = require('path');
+var _    = require('lodash');
 module.exports = function (grunt) {
   'use strict';
   grunt.registerTask('unused', function(){
@@ -104,7 +105,7 @@ module.exports = function (grunt) {
     });
 
     // Output unused files list in console
-    unused = grunt.util._.difference(assets, links);
+    unused = _.difference(assets, links);
     // output number of unused files
     grunt.log.ok(unused.length + ' file' + (unused.length === 1 ? '' : 's') + ' unused files:');
 
