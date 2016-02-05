@@ -29,7 +29,8 @@ module.exports = function (grunt) {
       directory: ['**/*.html'],
       remove: false,
       days: null,
-      reportOutput:false
+      reportOutput: false,
+      fail: false
     });
 
     //get current date and time
@@ -147,6 +148,10 @@ module.exports = function (grunt) {
       }
       grunt.file.write(options.reportOutput,unused.join('\r\n'));
       grunt.log.ok('Report "' + options.reportOutput + '" created.');
+    }
+
+    if (unused.length && !options.remove && options.fail) {
+      grunt.fail.warn('Unused files were found.');
     }
   });
 };
