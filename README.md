@@ -41,7 +41,8 @@ grunt.initConfig({
       directory: ['**/*.handlebars', '**/*.html'],
       days: 30,
       remove: false, // set to true to delete unused files from project
-      reportOutput:'report.txt' // set to false to disable file output
+      reportOutput:'report.txt', // set to false to disable file output
+      fail: false // set to true to make the task fail when unused files are found
     }
   }
 });
@@ -68,7 +69,7 @@ An array of directories that contain files that reference files in the reference
 Type: `Boolean`
 Default value: `false`
 
-The ablity to automatically delete unused file reference from project.
+The ability to automatically delete unused file reference from project.
 
 #### days
 Type: `Number`
@@ -81,6 +82,12 @@ Type: `String`
 Default value: `false`
 
 Output unused files to a file. Set to false to disable
+
+### fail
+Type: `Boolean`
+Default value: `false`
+
+Allows the Grunt task to fail when unused files are found.
 
 ## Release History
 * 0.2.1: Merge pull request [#5](https://github.com/ryanburgess/grunt-unused/pull/5)

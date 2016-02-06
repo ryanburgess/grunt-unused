@@ -30,7 +30,8 @@ module.exports = function (grunt) {
       directory: ['**/*.html'],
       remove: false,
       days: null,
-      reportOutput:false
+      reportOutput: false,
+      fail: false
     });
 
     //get current date and time
@@ -106,8 +107,14 @@ module.exports = function (grunt) {
 
     // Output unused files list in console
     unused = _.difference(assets, links);
+
     // output number of unused files
-    grunt.log.ok(unused.length + ' file' + (unused.length === 1 ? '' : 's') + ' unused files:');
+    if (unused.length) {
+      grunt.log.warn(unused.length + ' unused file' + (unused.length === 1 ? '' : 's') + ':');
+    }
+    else {
+      grunt.log.ok('No unused files found.');
+    }
 
     unused.forEach(function(file){
 
@@ -142,6 +149,10 @@ module.exports = function (grunt) {
       }
       grunt.file.write(options.reportOutput,unused.join('\r\n'));
       grunt.log.ok('Report "' + options.reportOutput + '" created.');
+    }
+
+    if (unused.length && !options.remove && options.fail) {
+      grunt.fail.warn('Unused files were found.');
     }
   });
 };
