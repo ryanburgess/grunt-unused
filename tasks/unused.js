@@ -6,6 +6,7 @@
  * Licensed under the MIT license.
  */
 var path = require('path');
+var _    = require('lodash');
 module.exports = function (grunt) {
   'use strict';
   grunt.registerTask('unused', function(){
@@ -66,7 +67,7 @@ module.exports = function (grunt) {
         day  = date.getDate();
         day = (day < 10 ? '0' : '') + day;
 
-        return year + '-' + month + '-' + day; 
+        return year + '-' + month + '-' + day;
 
     }
 
@@ -86,7 +87,7 @@ module.exports = function (grunt) {
     grunt.file.expand({
       filter: 'isFile',
         cwd: options.reference // Change this reference to your directory
-      }, 
+      },
       ['**/*']).forEach(function(file){
         assets.push(file);
     });
@@ -104,12 +105,12 @@ module.exports = function (grunt) {
     });
 
     // Output unused files list in console
-    unused = grunt.util._.difference(assets, links);
+    unused = _.difference(assets, links);
     // output number of unused files
     grunt.log.ok(unused.length + ' file' + (unused.length === 1 ? '' : 's') + ' unused files:');
 
     unused.forEach(function(file){
-      
+
       // delete file if remove is set to true
       if(options.remove === true && options.days !== null){
         datemod = fs.statSync(options.reference + file).mtime.toISOString();
