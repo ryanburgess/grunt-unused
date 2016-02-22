@@ -90,6 +90,7 @@ Default value: `false`
 Allows the Grunt task to fail when unused files are found.
 
 ## Release History
+* 0.2.3: Merge pull request [#8](https://github.com/ryanburgess/grunt-unused/pull/8)
 * 0.2.2: Merge pull request [#6](https://github.com/ryanburgess/grunt-unused/pull/6) and [#7](https://github.com/ryanburgess/grunt-unused/pull/7)
 * 0.2.1: Merge pull request [#5](https://github.com/ryanburgess/grunt-unused/pull/5)
 * 0.1.9: Add jshint and jsonlint tests.

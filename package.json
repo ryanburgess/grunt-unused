@@ -1,6 +1,6 @@
 {
   "name": "grunt-unused",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Check for unused files in a project",
   "keywords": [
     "gruntplugin",
@@ -24,7 +24,6 @@
   },
   "author": {
     "name": "Ryan Burgess",
-    "email": "rburgess@evernote.com",
     "url": "http://ryanburgess.com"
   },
   "repository": {
